@@ -17,6 +17,18 @@ pipeline{
                 }
             }
         }
+        stage('Docker old container remove')
+        {
+            steps{
+                sh 'docker rm -f devops-integrations||true'
+            }
+        }
+        stage('Docker new container run')
+        {
+            steps{
+                sh 'docker run -d -p 8082:8082 --name=devops-integrations jayakumarramar/devops-integration'
+            }
+        }
         stage('Push image to Hub'){
             steps{
                 script{
