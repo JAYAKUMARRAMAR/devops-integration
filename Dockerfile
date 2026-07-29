@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY --from=build /workspace/target/devops-integration.jar /app/app.jar
 
-EXPOSE 8081
+EXPOSE 8082
 ENV JAVA_OPTS=""
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
